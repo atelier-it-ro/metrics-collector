@@ -1,0 +1,6 @@
+psutil                   
+pyshark                  
+requests                 
+schedule
+tabulate                 
+termcolor                
