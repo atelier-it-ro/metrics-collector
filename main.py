@@ -56,7 +56,7 @@ class MetricsAggregator:
                 self.logger.info(f"System metrics send {'successful' if success else 'failed'}")
                 if success:
                     self.collected_metrics['system'].clear()
-                    
+
         except Exception as e:
             self.logger.error(f"Error in sending metrics: {e}")
 
@@ -105,7 +105,7 @@ def main():
     try:
         while True:
             aggregator.send_aggregated_metrics()
-            time.sleep(30)  # Send metrics every minute
+            time.sleep(15)  # Send metrics every minute
     except KeyboardInterrupt:
         logger.info("Metrics collection interrupted. Shutting down...")
     except Exception as e:
