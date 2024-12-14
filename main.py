@@ -56,14 +56,7 @@ class MetricsAggregator:
                 self.logger.info(f"System metrics send {'successful' if success else 'failed'}")
                 if success:
                     self.collected_metrics['system'].clear()
-
-            # Send ping metrics
-            if self.collected_metrics['ping']:
-                success = self.ping_sender.send_metrics(self.collected_metrics['ping'])
-                self.logger.info(f"Ping metrics send {'successful' if success else 'failed'}")
-                if success:
-                    self.collected_metrics['ping'].clear()
-
+                    
         except Exception as e:
             self.logger.error(f"Error in sending metrics: {e}")
 
@@ -112,7 +105,7 @@ def main():
     try:
         while True:
             aggregator.send_aggregated_metrics()
-            # time.sleep(60)  # Send metrics every minute
+            time.sleep(30)  # Send metrics every minute
     except KeyboardInterrupt:
         logger.info("Metrics collection interrupted. Shutting down...")
     except Exception as e:

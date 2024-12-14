@@ -11,9 +11,9 @@ class MetricsConfig:
     PING_METRICS_ENDPOINT: str = os.path.join(CENTRAL_ENDPOINT, 'ping-metrics/')
     
     # Collector-specific configurations
-    NETWORK_COLLECTION_INTERVAL: int = int(os.getenv('NETWORK_INTERVAL', 30))
-    SYSTEM_COLLECTION_INTERVAL: int = int(os.getenv('SYSTEM_INTERVAL', 30))
-    PING_COLLECTION_INTERVAL: int = int(os.getenv('PING_INTERVAL', 1))
+    NETWORK_COLLECTION_INTERVAL: int = int(os.getenv('NETWORK_INTERVAL', 10))
+    SYSTEM_COLLECTION_INTERVAL: int = int(os.getenv('SYSTEM_INTERVAL', 10))
+    PING_COLLECTION_INTERVAL: int = int(os.getenv('PING_INTERVAL', 10))
     
     # Hosts to ping
     PING_HOSTS: List[str] = field(default_factory=lambda: ['google.com'])
